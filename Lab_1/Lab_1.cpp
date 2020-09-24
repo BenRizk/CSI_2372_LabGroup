@@ -19,6 +19,16 @@ int main()
     cout << sizeof(f) << "\n";
     cout << sizeof(g) << "\n";
 
+    int fillMe;
+    char myChar;
+
+    cin >> fillMe;
+    cin >> myChar;
+
+    cout << "The values(dec,oct,hex): " << fillMe << fillMe;
+
+    cout << myChar;
+
     return 0;
 }
 
