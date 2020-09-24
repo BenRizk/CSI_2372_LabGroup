@@ -2,10 +2,24 @@
 //
 
 #include <iostream>
-
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+    int a;
+    char b;
+    float c;
+    double d;
+    unsigned int f;
+    short int g;
+
+    cout << sizeof(a)<<"\n";
+    cout << sizeof(b) << "\n";
+    cout << sizeof(c) << "\n";
+    cout << sizeof(d) << "\n";
+    cout << sizeof(f) << "\n";
+    cout << sizeof(g) << "\n";
+
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
