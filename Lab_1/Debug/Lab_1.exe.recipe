@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
+<<<<<<< HEAD
   <ProjectOutputs>C:\Users\theoa\Documents\School\C++ Class\Lab_1\Debug\Lab_1.exe</ProjectOutputs>
+=======
+  <ProjectOutputs>C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1\Debug\Lab_1.exe</ProjectOutputs>
+>>>>>>> 5628fe681afd0868407b86b3522f1ee9133e3a07
   <ContentFiles></ContentFiles>
   <SatelliteDlls></SatelliteDlls>
   <NonRecipeFileRefs></NonRecipeFileRefs>

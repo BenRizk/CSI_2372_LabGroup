@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+<<<<<<< HEAD
 
 /*IV.5 Excersise 2:
     1) the main function calculates the surface area of a disck if given the coice option 1, calculates the volume of a cylinder if given choice option 2 and if given choice option 3 then it prints the calues for the surface and the volume.
@@ -24,6 +25,26 @@ int main()
     const double Pi = 3.14159;
     int sur = surface(2);
     int vol = volume(4, 3);
+=======
+using namespace std;
+int main()
+{
+    int a;
+    char b;
+    float c;
+    double d;
+    unsigned int f;
+    short int g;
+
+    cout << sizeof(a)<<"\n";
+    cout << sizeof(b) << "\n";
+    cout << sizeof(c) << "\n";
+    cout << sizeof(d) << "\n";
+    cout << sizeof(f) << "\n";
+    cout << sizeof(g) << "\n";
+
+    return 0;
+>>>>>>> 5628fe681afd0868407b86b3522f1ee9133e3a07
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
