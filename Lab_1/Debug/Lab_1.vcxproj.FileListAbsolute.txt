@@ -1,2 +1,7 @@
+<<<<<<< HEAD
+C:\Users\theoa\Documents\School\C++ Class\Lab_1\Debug\Lab_1.exe
+C:\Users\theoa\Documents\School\C++ Class\Lab_1\Debug\Lab_1.pdb
+=======
 C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1\Debug\Lab_1.exe
 C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1\Debug\Lab_1.pdb
+>>>>>>> 5628fe681afd0868407b86b3522f1ee9133e3a07
