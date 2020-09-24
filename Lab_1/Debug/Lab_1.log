@@ -1,7 +1,2 @@
-<<<<<<< HEAD
 ﻿  Lab_1.cpp
-C:\Users\theoa\Documents\School\C++ Class\Lab_1\Lab_1.cpp(9,19): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-  Lab_1.vcxproj -> C:\Users\theoa\Documents\School\C++ Class\Lab_1\Debug\Lab_1.exe
-=======
-﻿  Lab_1.vcxproj -> C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1\Debug\Lab_1.exe
->>>>>>> 5628fe681afd0868407b86b3522f1ee9133e3a07
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1\Lab_1.cpp(14,19): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
