@@ -1,14 +1,15 @@
 // Lab_1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+
 
 #include <iostream>
-<<<<<<< HEAD
+#include "Header1.h"
 
 /*IV.5 Excersise 2:
     1) the main function calculates the surface area of a disck if given the coice option 1, calculates the volume of a cylinder if given choice option 2 and if given choice option 3 then it prints the calues for the surface and the volume.
 
     */
 //Excersise 2: 2i)
+/*
 int surface(int rad) {
     const double Pi = 3.14159;
     return 2 * Pi * rad;
@@ -18,15 +19,14 @@ int surface(int rad) {
 int volume(int rad, int hei) {
     return surface(rad) * hei;
 }
+*/
 
-int main()
-{
-    std::cout << "Hello World!\n";
-    const double Pi = 3.14159;
-    int sur = surface(2);
-    int vol = volume(4, 3);
-=======
+
+    
+    
+
 using namespace std;
+
 int main()
 {
     int a;
@@ -43,8 +43,13 @@ int main()
     cout << sizeof(f) << "\n";
     cout << sizeof(g) << "\n";
 
+
+    const double Pi = 3.14159;
+    int sur = surface(2);
+    int vol = volume(4, 3);
+
     return 0;
->>>>>>> 5628fe681afd0868407b86b3522f1ee9133e3a07
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
