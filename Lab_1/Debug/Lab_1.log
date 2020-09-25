@@ -1,4 +1,9 @@
 ﻿  Lab_1.cpp
+<<<<<<< HEAD
 C:\Users\theoa\Documents\School\C++ Class\Lab_1\Header1.h(5,19): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
   Lab_1.vcxproj -> C:\Users\theoa\Documents\School\C++ Class\Lab_1\Debug\Lab_1.exe
+=======
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1\Lab_1.cpp(14,19): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  Lab_1.vcxproj -> C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1\Debug\Lab_1.exe
+>>>>>>> 0b19b8ca023c3f62bf57b1d5f9df72eafc5e4fc2
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(4933,5): error MSB3541: Files has invalid value "<<<<<<< HEAD". Illegal characters in path.
