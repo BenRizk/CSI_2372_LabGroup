@@ -1,1 +1,14 @@
-﻿  Lab_1_New.vcxproj -> C:\Users\theoa\Documents\School\C++ Class\Lab_1_New\Lab_1_New\Debug\Lab_1_New.exe
+﻿  Lab_1_New.cpp
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\myfile2.h(5,19): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Lab_1_New.cpp(13,5): error C2084: function 'int surface(int)' already has a body
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\myfile2.h(3): message : see previous definition of 'surface'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Lab_1_New.cpp(19,5): error C2084: function 'int volume(int,int)' already has a body
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\myfile2.h(9): message : see previous definition of 'volume'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Lab_1_New.cpp(20,12): error C2065: 'surface': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Lab_1_New.cpp(20,30): error C2296: '*': illegal, left operand has type 'int (__cdecl *)(int)'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Lab_1_New.cpp(75,15): error C2065: 'surface': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Lab_1_New.cpp(75,25): error C2440: 'initializing': cannot convert from 'int (__cdecl *)(int)' to 'int'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Lab_1_New.cpp(75,13): message : There is no context in which this conversion is possible
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Lab_1_New.cpp(76,15): error C2065: 'volume': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Lab_1_New.cpp(76,27): error C2440: 'initializing': cannot convert from 'int (__cdecl *)(int,int)' to 'int'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Lab_1_New.cpp(76,13): message : There is no context in which this conversion is possible
