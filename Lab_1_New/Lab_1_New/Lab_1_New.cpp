@@ -20,7 +20,38 @@ int volume(int rad, int hei) {
     return surface(rad) * hei;
 }
 
+int findHex(int val) {
+    int temp;
+    int counter = 0;
+    temp = val;
+    do {
+        temp = temp / 16;
+        counter++;
+    } while (temp > 1);     // repeat while temp is not a fraction
+    return (counter + temp);
+}
 
+int findOct(int val) {
+    int temp;
+    int counter = 0;
+    temp = val;
+    do {
+        temp = temp / 8;
+        counter++;
+    } while (temp > 1); // repeat while temp is not a fraction
+    return (counter + temp);
+}
+
+int* getSci(int val) {
+    int hold[2];
+    hold[0] = val;
+    hold[1] = 0;
+    do {
+        hold[0] = hold[0] / 10;
+        hold[1]++;
+    } while (hold[0] > 1); // repeat while temp is not a fraction
+    return hold;
+}
 
 int main()
 {
@@ -49,16 +80,21 @@ int main()
     
 
     int fillMe;
+    int myInt;
+    int* mySci;
     char myChar;
 
     cout << "Enter number: ";
-
     cin >> fillMe;
-    cout << "Enter letter: " << "\n";
+    cout << "\n" << "Enter another number: ";
+    cin >> myInt;
+    cout << "\n" << "Enter letter: " ;
     cin >> myChar;
 
-    cout << "The values(dec,oct,hex): " << fillMe;
-    cout << "\n" <<"your character: " << myChar;
+    cout << "The values(dec,oct,hex): " << fillMe << ", " << findOct(fillMe) << ", " << findHex(fillMe);
+    mySci = getSci(myInt);
+    cout << "\n" << "With and without notational value: " << myInt << ", " << mySci[0] << " e+" << mySci[1];
+    cout << "\n" <<"Your character: " << myChar;
     
     return 0;
 }
