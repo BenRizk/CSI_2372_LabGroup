@@ -20,8 +20,8 @@ int volume(int rad, int hei) {
     return surface(rad) * hei;
 }
 
-int findHex(int val) {
-    int temp;
+double findHex(double val) {
+    double temp;
     int counter = 0;
     temp = val;
     do {
@@ -31,8 +31,8 @@ int findHex(int val) {
     return (counter + temp);
 }
 
-int findOct(int val) {
-    int temp;
+double findOct(double val) {
+    double temp;
     int counter = 0;
     temp = val;
     do {
@@ -42,14 +42,14 @@ int findOct(int val) {
     return (counter + temp);
 }
 
-int* getSci(int val) {
-    int hold[2];
+double* getSci(double val) {
+    double hold[2];
     hold[0] = val;
     hold[1] = 0;
-    do {
+    while (hold[0] > 10) {
         hold[0] = hold[0] / 10;
         hold[1]++;
-    } while (hold[0] > 1); // repeat while temp is not a fraction
+    }; // repeat while temp is not a fraction
     return hold;
 }
 
@@ -79,9 +79,9 @@ int main()
     cout << "my volume: " << "\n" << vol << "\n";
     
 
-    int fillMe;
-    int myInt;
-    int* mySci;
+    double fillMe;
+    double myInt;
+    double* mySci;
     char myChar;
 
     cout << "Enter number: ";

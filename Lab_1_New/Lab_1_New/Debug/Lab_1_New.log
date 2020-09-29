@@ -1,4 +1,1 @@
-﻿  Lab_1_New.cpp
-C:\Users\theoa\Documents\School\C++ Class\Lab_1_New\Lab_1_New\Lab_1_New.cpp(15,19): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Users\theoa\Documents\School\C++ Class\Lab_1_New\Lab_1_New\Lab_1_New.cpp(53): warning C4172: returning address of local variable or temporary: hold
-  Lab_1_New.vcxproj -> C:\Users\theoa\Documents\School\C++ Class\Lab_1_New\Lab_1_New\Debug\Lab_1_New.exe
+﻿  Lab_1_New.vcxproj -> C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab_1_New\Lab_1_New\Debug\Lab_1_New.exe
