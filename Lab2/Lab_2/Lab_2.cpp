@@ -2,11 +2,29 @@
 //
 
 #include <iostream>
-
-int main()
+using namespace std;
+void main(void)
 {
-    std::cout << "Hello World!\n";
+	int tab[80];
+	int* p;
+	int i;
+	for (i = 0; i < 80; i++) tab[i] = i * i;
+	cout << tab[2] << endl;
+	tab[2] = tab[1];
+	cout << tab[1] << endl;
+	cout << tab[2] << endl;
+	tab[2] = *(tab + 1);
+	cout << tab[1] << endl;
+	cout << tab[2] << endl;
+	*(tab + 2) = tab[1];
+	cout << tab[1] << endl;
+	*(tab + 2) = *(tab + 1);
+	p = &tab[0];
+	p = tab + 1;
+	tab[4] = *p;
+	
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

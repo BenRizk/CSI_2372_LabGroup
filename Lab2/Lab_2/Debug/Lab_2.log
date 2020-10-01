@@ -1,0 +1,3 @@
+﻿  Lab_2.cpp
+C:\Users\theoa\Documents\School\C++ Class\Lab2\Lab_2\Lab_2.cpp(7,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\theoa\Documents\School\C++ Class\Lab2\Lab_2\Lab_2.cpp(20): error C4700: uninitialized local variable 'p' used
