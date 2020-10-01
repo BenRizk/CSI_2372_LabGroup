@@ -1,2 +1,4 @@
 C:\Users\theoa\Documents\School\C++ Class\Lab2\Lab_2\Debug\Lab_2.exe
 C:\Users\theoa\Documents\School\C++ Class\Lab2\Lab_2\Debug\Lab_2.pdb
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab2\Lab_2\Debug\Lab_2.exe
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab2\Lab_2\Debug\Lab_2.pdb
