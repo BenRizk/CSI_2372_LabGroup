@@ -1,4 +1,4 @@
-#include " myFile2.h"
+#include "myFile2.h"
 /********************************************************************************/
 /* Function menu which returns a character corresponding to the user's choice */
 /********************************************************************************/
