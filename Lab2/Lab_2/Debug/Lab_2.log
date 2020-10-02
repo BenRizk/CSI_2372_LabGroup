@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 ﻿  myFileprincipal2.cpp
 myFileprincipal2.obj : error LNK2019: unresolved external symbol "void __cdecl display(char * * const,int const &)" (?display@@YAXQAPADABH@Z) referenced in function "int __cdecl main2(void)" (?main2@@YAHXZ)
 myFileprincipal2.obj : error LNK2019: unresolved external symbol "void __cdecl sort(char * * const,int const &)" (?sort@@YAXQAPADABH@Z) referenced in function "int __cdecl main2(void)" (?main2@@YAHXZ)
 C:\Users\theoa\Documents\School\C++ Class\Lab2\Lab_2\Debug\Lab_2.exe : fatal error LNK1120: 2 unresolved externals
+=======
+﻿  Lab_2_Exercise2.cpp
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab2\Lab_2\Lab_2_Exercise2.cpp(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab2\Lab_2\Lab_2_Exercise2.cpp(6,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+>>>>>>> b0d76c839f03dfd8496766a5d80110f91318de4f

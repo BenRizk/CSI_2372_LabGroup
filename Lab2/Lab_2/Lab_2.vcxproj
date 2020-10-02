@@ -140,6 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Lab_2.cpp" />
+<<<<<<< HEAD
+=======
+    <ClCompile Include="Lab_2_Exercise2.cpp" />
+    <ClCompile Include="myFile2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="myFile1.h" />
+    <ClInclude Include="myFile2.h" />
+>>>>>>> b0d76c839f03dfd8496766a5d80110f91318de4f
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
