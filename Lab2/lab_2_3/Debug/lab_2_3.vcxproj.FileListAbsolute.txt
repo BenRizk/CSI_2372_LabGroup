@@ -1,0 +1,2 @@
+C:\Users\theoa\Documents\School\C++ Class\Lab2\lab_2_3\Debug\lab_2_3.exe
+C:\Users\theoa\Documents\School\C++ Class\Lab2\lab_2_3\Debug\lab_2_3.pdb

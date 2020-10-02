@@ -1,2 +1,4 @@
-﻿  myFile2.cpp
-  Lab_2.vcxproj -> C:\Users\theoa\Documents\School\C++ Class\Lab2\Lab_2\Debug\Lab_2.exe
+﻿  myFileprincipal2.cpp
+myFileprincipal2.obj : error LNK2019: unresolved external symbol "void __cdecl display(char * * const,int const &)" (?display@@YAXQAPADABH@Z) referenced in function "int __cdecl main2(void)" (?main2@@YAHXZ)
+myFileprincipal2.obj : error LNK2019: unresolved external symbol "void __cdecl sort(char * * const,int const &)" (?sort@@YAXQAPADABH@Z) referenced in function "int __cdecl main2(void)" (?main2@@YAHXZ)
+C:\Users\theoa\Documents\School\C++ Class\Lab2\Lab_2\Debug\Lab_2.exe : fatal error LNK1120: 2 unresolved externals
