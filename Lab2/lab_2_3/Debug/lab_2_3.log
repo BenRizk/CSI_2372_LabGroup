@@ -1,2 +1,4 @@
-﻿  myFileprincipal2.cpp
+﻿  myFile2.cpp
+C:\Users\theoa\Documents\School\C++ Class\Lab2\lab_2_3\myFile2.cpp(41,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\theoa\Documents\School\C++ Class\Lab2\lab_2_3\myFile2.cpp(50): warning C4717: 'sort': recursive on all control paths, function will cause runtime stack overflow
   lab_2_3.vcxproj -> C:\Users\theoa\Documents\School\C++ Class\Lab2\lab_2_3\Debug\lab_2_3.exe

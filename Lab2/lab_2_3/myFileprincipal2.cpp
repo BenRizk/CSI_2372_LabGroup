@@ -1,11 +1,6 @@
 #include "myFile2.h"
 
-void display(char ** const, int const &) {
-	
-}
-void sort(char ** const, int const&) {
-	
-}
+
 
 
 int main(){

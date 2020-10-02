@@ -36,3 +36,15 @@ void replace(char* tab[], int const& nbre, int const& size)
 		cout << "There is no string with this number" << endl;
 	}
 }
+
+void display(char** const str, int const& num) {
+	for (size_t i = 0; i < num; i++)
+	{
+		cout << str[i];
+	}
+	cout << endl;
+}
+
+void sort(char** const str, int const& num) {
+	sort(str, num);
+}
