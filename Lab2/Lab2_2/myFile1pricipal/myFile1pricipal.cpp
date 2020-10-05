@@ -14,10 +14,24 @@ void main(void)
 	sort(myTab, size_tab);
 	cout << " Display of sorted array " << endl;
 	for (i = 0;i < size_tab;i++) cout << myTab[i] << endl;
+	
 }
 
 void sort(int numbers[], int size) {
+	int current;
+	int iterator;
+	
 
+	for (int i = 1; i < size;i++) {
+		current = numbers[i];
+		iterator = i - 1;
+
+		while (iterator > 0 && numbers[iterator] > current) {
+			numbers[iterator+1] = numbers[iterator];
+			iterator--;
+		}
+		numbers[iterator + 1] = current;
+	}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
