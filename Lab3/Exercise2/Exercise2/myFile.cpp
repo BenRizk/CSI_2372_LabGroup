@@ -10,18 +10,20 @@ Evaluation* add(Evaluation* e, int& i) {
 	{
 		current = current->next;
 	}
-	char newStudent[20];
+	//get and set new values
+	char newStudent[20] = " ";
 	int newGrade;
-
 	cout << "enter the student value" << endl;
 	cin >> newStudent;
-	//current->student = newStudent;//TODO: for some reason this does not work
-
 	cout << "enter the grade value" << endl;
 	cin >> newGrade;
-	//current->grade = newGrade;//TODO: for some reason this does not work
-
 	
+	Evaluation* newLink = NULL;
+	//newLink->student = *newStudent;
+	newLink->grade = newGrade;
+
+	current = current->next = newLink;
+
 	return e;
 }
 
@@ -51,6 +53,7 @@ Evaluation* remove(Evaluation* e, int& i) {
 }
 
 void display(Evaluation* e) {
+	if (e == NULL) { return; }
 	while (e->next != NULL)
 	{
 		cout << "student named " << e->student;
