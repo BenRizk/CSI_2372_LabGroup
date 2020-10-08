@@ -1,0 +1,2 @@
+﻿  myFile.cpp
+C:\Users\theoa\Documents\School\C++ Class\Lab3\Exercise2\Exercise2\myFile.cpp(18,31): error C3863: array type 'char [20]' is not assignable
