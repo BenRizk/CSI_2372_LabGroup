@@ -2,11 +2,23 @@
 //
 
 #include <iostream>
+using namespace std;
+enum Color { club, diamond, spades, heart };
+enum Face { seven, eight, nine, ten, jack, queen, king, ace };
+struct Card
+{
+	Color color;
+	Face face;
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Card game[32];
+	for (int i = 0; i < 32; i++) {
+
+	}
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
