@@ -12,17 +12,20 @@ Evaluation* add(Evaluation* e, int& i) {
 	}
 	//get and set new values
 	char newStudent[20] = " ";
-	int newGrade;
+	int newGrade=0;
 	cout << "enter the student value" << endl;
 	cin >> newStudent;
 	cout << "enter the grade value" << endl;
 	cin >> newGrade;
 	
-	Evaluation* newLink = NULL;
-	//newLink->student = *newStudent;
+	Evaluation* newLink = new Evaluation;
+	for (int i = 0; i < 20; i++)
+	{
+		newLink->student[i] = newStudent[i];
+	}
 	newLink->grade = newGrade;
 
-	current = current->next = newLink;
+	current->next = newLink;//TODO this issues is when adding it to the linked list
 
 	return e;
 }
