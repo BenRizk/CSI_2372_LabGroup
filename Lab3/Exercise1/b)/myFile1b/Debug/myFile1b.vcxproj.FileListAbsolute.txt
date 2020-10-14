@@ -1,0 +1,2 @@
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab3\Exercise1\b)\myFile1b\Debug\myFile1b.exe
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab3\Exercise1\b)\myFile1b\Debug\myFile1b.pdb
