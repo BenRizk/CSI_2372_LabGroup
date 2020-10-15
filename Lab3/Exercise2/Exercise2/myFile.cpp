@@ -5,11 +5,8 @@
 
 
 Evaluation* add(Evaluation* e, int& i) {
-	Evaluation *current = e;
-	for (int j = 0; j < i; j++)
-	{
-		current = current->next;
-	}
+	
+	
 	//get and set new values
 	char newStudent[20] = " ";
 	int newGrade=0;
@@ -19,13 +16,21 @@ Evaluation* add(Evaluation* e, int& i) {
 	cin >> newGrade;
 	
 	Evaluation* newLink = new Evaluation;
+	
+
 	for (int i = 0; i < 20; i++)
 	{
 		newLink->student[i] = newStudent[i];
 	}
 	newLink->grade = newGrade;
+	if (i == 0) { return newLink; }
 
-	current->next = newLink;//TODO this issues is when adding it to the linked list
+	for (int j = 0; j < i; j++)
+	{
+		e = e->next;
+	}
+
+	e->next = &(*newLink); //TODO this issues is when adding it to the linked list
 
 	return e;
 }
@@ -57,15 +62,16 @@ Evaluation* remove(Evaluation* e, int& i) {
 
 void display(Evaluation* e) {
 	if (e == NULL) { return; }
-	while (e->next != NULL)
+	while (e != NULL)
 	{
 		cout << "student named " << e->student;
-		cout << "has a grade of: " << e->grade << endl;
+		cout << " has a grade of: " << e->grade << endl;
 		e = e->next;
 	}
 }
 
 int average(Evaluation* e, int const& i) {
+	if (i == 0) { return 0; }
 	int sum = 0;
 	Evaluation* current = e;
 	for (int j = 0; j < i; j++)
@@ -86,9 +92,9 @@ int main()
 	do{
 		cout << endl << endl <<"1) Display ofthe complete linked list.\n";
 		cout << "2)Inserting anelement\n";
-		cout << "3) Removinganelement.\n";
-		cout << "4) Calculation of theclass average.\n";
-		cout << "5) Exiting theprogram.\n" <<endl << endl;
+		cout << "3) Removing an element.\n";
+		cout << "4) Calculation of the class average.\n";
+		cout << "5) Exiting the program.\n" <<endl << endl;
 		cout << "Your choice??:";
 		cin >> choice;
 
