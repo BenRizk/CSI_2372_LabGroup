@@ -1,6 +1,6 @@
 /* **********File:"myFile1b.h" * *********/ 
 #include <iostream>
-#include "myFile1a.h"
+//#include "myFile1a.h"
 using namespace std; 
 class Student{ 
 	int numID; 
@@ -15,3 +15,5 @@ public:
 	int totalHours(); 
 	bool addCourse(Course*, int ); 
 };
+
+
