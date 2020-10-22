@@ -1,7 +1,9 @@
 ﻿/*FilemyFile.cpp*/
-#include "Player.h"
+#include "myFile.h"
+/*#include "Player.h"
 #include "CardsSet.h"
 #include "Card.h"
+*/
 #include <iostream>
 using namespace std; 
 #include <cstdlib>
