@@ -9,30 +9,32 @@ using namespace std;
 class SetInt {
 	int size;
 	int* set;
+	int mySet[];
 	
 public:
 	SetInt() {
-		size = 0;
-		set = NULL;
+		size = 0;		//create empty set
+		set = mySet;
+		
 
 	}
 
 	SetInt(int arr[], int length) {
-		size = length;
+		size = length;				//create pre deteremined set
 		set = arr;
 	}
 
-	~SetInt() {
+	~SetInt() {						// delete/reset set
 		size = 0;
 		delete set;
 	}
-
-	void add(int input) {
+		
+	void add(int input) {			// add an element to the set
 		*(set + size + 1) = input;
 		size++;
 	}
 
-	void remove(int input) {
+	void remove(int input) {			// remove an element from the set
 		for(int i = 0;i < size; i++){
 			if (*(set + i) == input) {
 				*(set + i) = 0;
@@ -41,7 +43,7 @@ public:
 		}
 		
 	}
-	bool contains(int input) {
+	bool contains(int input) {		//check if element exists
 		for (int i = 0;i < size; i++) {
 			if (*(set + i) == input) {
 				return true;
@@ -49,10 +51,10 @@ public:
 		}
 		return false;
 	}
-	int nbElem() {
+	int nbElem() {				//return size
 		return size;
 	}
-	int* tabElem() {
+	int* tabElem() {			// return set
 		if (set != NULL) {
 			return set;
 		}
