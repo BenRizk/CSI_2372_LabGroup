@@ -1,0 +1,68 @@
+﻿  myFile.cpp
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\Player.h(4,9): error C2061: syntax error: identifier 'CardsSet'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\Player.h(8,18): error C3646: 'inHand': unknown override specifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\Player.h(8,18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\Player.h(9,11): error C2143: syntax error: missing ';' before '&'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\Player.h(9,11): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\Player.h(9,19): error C2238: unexpected token(s) preceding ';'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\Player.h(4,58): error C2065: 'cardPacket': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\Player.h(5,4): error C2065: 'isComputer': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\Player.h(4,51): error C2614: 'Player': illegal member initialization: 'packet' is not a base or member
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(10,12): error C3646: 'take': unknown override specifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(10,12): error C2059: syntax error: '('
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(10,14): error C2238: unexpected token(s) preceding ';'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(11,17): error C2061: syntax error: identifier 'Card'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(12,14): error C3646: 'lookIn': unknown override specifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(12,14): error C2059: syntax error: '('
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(12,22): error C2238: unexpected token(s) preceding ';'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(15,11): error C3646: 'set': unknown override specifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(15,11): error C2143: syntax error: missing ',' before '['
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(15,15): error C2143: syntax error: missing ')' before ';'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(15,15): error C2238: unexpected token(s) preceding ';'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(18,15): error C2535: 'void CardsSet::novSet(void)': member function already defined or declared
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(7): message : see declaration of 'CardsSet::novSet'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(42,16): error C2535: 'void CardsSet::shuffle(void)': member function already defined or declared
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(8): message : see declaration of 'CardsSet::shuffle'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(52,10): error C3646: 'take': unknown override specifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(52,10): error C2059: syntax error: '('
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(52,13): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(60,15): error C2061: syntax error: identifier 'Card'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(60,19): error C2535: 'void CardsSet::put(void)': member function already defined or declared
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(11): message : see declaration of 'CardsSet::put'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(66,12): error C3646: 'lookIn': unknown override specifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(66,12): error C2059: syntax error: '('
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(66,26): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(19,2): error C2065: 'Card': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(19,8): error C2065: 'pointer': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(19,18): error C2065: 'set': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(23,3): error C2065: 'color': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(23,9): error C2146: syntax error: missing ';' before identifier 'temp'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(23,9): error C2065: 'temp': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(23,16): error C2065: 'club': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(25,4): error C2065: 'temp': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(25,11): error C2065: 'club': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(28,4): error C2065: 'temp': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(28,11): error C2065: 'diamond': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(31,4): error C2065: 'temp': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(31,11): error C2065: 'heart': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(34,4): error C2065: 'temp': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(34,11): error C2065: 'spade': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(36,3): error C2065: 'Card': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(36,8): error C2146: syntax error: missing ';' before identifier 'myCard'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(36,8): error C2065: 'myCard': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(36,22): error C2065: 'temp': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(36,17): error C3861: 'Card': identifier not found
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(37,3): error C2065: 'set': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(37,12): error C2065: 'myCard': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(44,3): error C2065: 'Card': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(44,8): error C2146: syntax error: missing ';' before identifier 'holdMe'
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(44,8): error C2065: 'holdMe': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(44,17): error C2065: 'set': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(46,3): error C2065: 'set': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(46,12): error C2065: 'set': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(47,3): error C2065: 'set': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(47,21): error C2065: 'holdMe': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(61,2): error C2065: 'set': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\CardsSet.h(61,16): error C2065: 'me': undeclared identifier
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\myFile.cpp(15,27): error C2661: 'Player::Player': no overloaded function takes 2 arguments
+C:\Users\BRizk\Documents\GitHub\CSI_2372_LabGroup\Lab5\myFile.cpp(16,25): error C2661: 'Player::Player': no overloaded function takes 2 arguments

@@ -8,7 +8,8 @@ class Card{
 	public: 
 		Card(color c=club, int v=1) ; 
 		int value(){return val;}
-		void write() ; 
+		void write() {
+			cout << "Color: " << col << "\n"; cout << "Value: " << val << "\n";};   //print value of card
 	private : 
 		color col; 
 		int val; 
@@ -21,3 +22,4 @@ Card::Card(color c, int v) {
 	col=c;
 	val=v; 
 }
+
