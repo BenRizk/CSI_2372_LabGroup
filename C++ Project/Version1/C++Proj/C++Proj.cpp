@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 //Cards section
@@ -224,14 +225,19 @@ class Garden : public Card {
     }
 };
 
-
 //Chain section
 class Chain {
 
 };
 
-class Deck{
+class Deck : public std::vector<Card>{
 
+    Deck(istream& i, const CardFactory* c) {
+        
+    }
+    Card* draw() {
+
+    }
 };
 
 class DiscardPile {
