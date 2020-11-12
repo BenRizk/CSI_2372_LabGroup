@@ -5,34 +5,222 @@
 using namespace std;
 
 //Cards section
-class Card {
-    string cardName;
-    virtual int getCardsPerCoin(int coins);
-    virtual string getName();
-    virtual void print(ostream& out);
-    /*
-    TODO: a global stream insertion operator for printing any objects of such a class which implements the “Virtual Friend Function Idiom” with the class hierarch
-    */
+class Card {                                            //Card acts as a base class for its children to take from
+    virtual int getCardsPerCoin(int coins) {
+    }
+    virtual string getName() {
+    }
+    virtual void print(ostream& out) {
+
+    }
 };
 
-class Blue: Card {/*this eneds to be copied into the class of Chili, Stink, Green, soy, red and garden*/
-    string cardName;
+
+class Blue : public Card {                               //From Blue to Garden are the different cards that exist in the game and are children of Card  
+    string getName() {
+        return "Blue";
+    }                          // They have a name, points, and print function
     int getCardsPerCoin(int coins) {
-        switch (coins)
-        {
-        case 1:
+        if (coins == 1) {
             return 4;
-        case 2:
+        }
+        else if (coins == 2) {
             return 6;
-        case 3:
+        }
+        else if (coins == 3) {
             return 8;
-        case 4:
+        }
+        else if (coins == 4) {
             return 10;
         }
+        else {
+            return 100;
+        }
     }
-    string getName() { return "Blue"; };
     void print(ostream& out) {
-        cout << &out << " B" ;
+        out.put('B');
+    }
+};
+
+class Chili : public Card {
+    string getName() {
+        return "Chili";
+    }
+    int getCardsPerCoin(int coins) {
+        if (coins == 1) {
+            return 3;
+        }
+        else if (coins == 2) {
+            return 6;
+        }
+        else if (coins == 3) {
+            return 8;
+        }
+        else if (coins == 4) {
+            return 9;
+        }
+        else {
+            return 100;
+        }
+    }
+    void print(ostream& out) {
+        out.put('C');;
+    }
+};
+
+class Stink : public Card {
+    string getName() {
+        return "Stink";
+    }
+    int getCardsPerCoin(int coins) {
+        if (coins == 1) {
+            return 3;
+        }
+        else if (coins == 2) {
+            return 5;
+        }
+        else if (coins == 3) {
+            return 7;
+        }
+        else if (coins == 4) {
+            return 8;
+        }
+        else {
+            return 100;
+        }
+    }
+    void print(ostream& out) {
+        out.put('S');;
+    }
+};
+
+class Green : public Card {
+    string getName() {
+        return "Green";
+    }
+    int getCardsPerCoin(int coins) {
+        if (coins == 1) {
+            return 3;
+        }
+        else if (coins == 2) {
+            return 5;
+        }
+        else if (coins == 3) {
+            return 6;
+        }
+        else if (coins == 4) {
+            return 7;
+        }
+        else {
+            return 100;
+        }
+    }
+    void print(ostream& out) {
+        out.put('G');;
+    }
+};
+
+class Soy : public Card {
+    string getName() {
+        return "Soy";
+    }
+    int getCardsPerCoin(int coins) {
+        if (coins == 1) {
+            return 2;
+        }
+        else if (coins == 2) {
+            return 4;
+        }
+        else if (coins == 3) {
+            return 5;
+        }
+        else if (coins == 4) {
+            return 7;
+        }
+        else {
+            return 100;
+        }
+    }
+    void print(ostream& out) {
+        out.put('S');;
+    }
+};
+
+class Black : public Card {
+    string getName() {
+        return "Black";
+    }
+    int getCardsPerCoin(int coins) {
+        if (coins == 1) {
+            return 2;
+        }
+        else if (coins == 2) {
+            return 4;
+        }
+        else if (coins == 3) {
+            return 5;
+        }
+        else if (coins == 4) {
+            return 6;
+        }
+        else {
+            return 100;
+        }
+    }
+    void print(ostream& out) {
+        out.put('b');;
+    }
+};
+
+class Red : public Card {
+    string getName() {
+        return "Red";
+    }
+    int getCardsPerCoin(int coins) {
+        if (coins == 1) {
+            return 2;
+        }
+        else if (coins == 2) {
+            return 3;
+        }
+        else if (coins == 3) {
+            return 4;
+        }
+        else if (coins == 4) {
+            return 5;
+        }
+        else {
+            return 100;
+        }
+    }
+    void print(ostream& out) {
+        out.put('R');;
+    }
+};
+
+class Garden : public Card {
+    string getName() {
+        return "Garden";
+    }
+    int getCardsPerCoin(int coins) {
+        if (coins == 1) {
+            return NULL;
+        }
+        else if (coins == 2) {
+            return 2;
+        }
+        else if (coins == 3) {
+            return 3;
+        }
+        else if (coins == 4) {
+            return NULL;
+        }
+        else {
+            return 100;
+        }
+    }
+    void print(ostream& out) {
+        out.put('g');;
     }
 };
 
