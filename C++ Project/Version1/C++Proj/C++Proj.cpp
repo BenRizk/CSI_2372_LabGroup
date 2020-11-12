@@ -4,11 +4,40 @@
 #include <iostream>
 using namespace std;
 
+//Cards section
 class Card {
     string cardName;
-
+    virtual int getCardsPerCoin(int coins);
+    virtual string getName();
+    virtual void print(ostream& out);
+    /*
+    TODO: a global stream insertion operator for printing any objects of such a class which implements the “Virtual Friend Function Idiom” with the class hierarch
+    */
 };
 
+class Blue: Card {/*this eneds to be copied into the class of Chili, Stink, Green, soy, red and garden*/
+    string cardName;
+    int getCardsPerCoin(int coins) {
+        switch (coins)
+        {
+        case 1:
+            return 4;
+        case 2:
+            return 6;
+        case 3:
+            return 8;
+        case 4:
+            return 10;
+        }
+    }
+    string getName() { return "Blue"; };
+    void print(ostream& out) {
+        cout << &out << " B" ;
+    }
+};
+
+
+//Chain section
 class Chain {
 
 };
