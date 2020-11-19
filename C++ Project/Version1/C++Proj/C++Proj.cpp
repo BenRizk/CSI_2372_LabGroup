@@ -226,9 +226,31 @@ class Garden : public Card {
 };
 
 //Chain section
-class Chain {
-
+template <class T> class Chain_Base {
+protected:
+    std::vector<T*> chain;
+    Chain_Base(T type) { std::vector<type*> chain; }
 };
+
+class Chain {
+    istream myIstream;
+    CardFactory myCardFactory;
+    /*Chain(istream& a, const CardFactory* b) {
+        myCardFactory = *b;
+    }
+    Chain<T>& operator += (Card*) {
+        return this;
+    }
+    int sell(){
+        int sum = 0;
+        for each (object card in myCardFactory)
+        {
+            sum += card::getCardsPerCoin();
+        }
+    }*/
+};
+
+
 
 class Deck : public std::vector<Card>{
 
