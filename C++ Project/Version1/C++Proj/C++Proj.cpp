@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <random>
 using namespace std;
 
 //Cards section
@@ -16,7 +17,13 @@ class Card {                                            //Card acts as a base cl
     }
 };
 
-class Blue : public Card {                               //From Blue to Garden are the different cards that exist in the game and are children of Card  
+
+class Blue : public Card {  
+                             //From Blue to Garden are the different cards that exist in the game and are children of Card  
+public :
+    Blue() {
+        return;
+   }
     string getName() {
         return "Blue";
     }                          // They have a name, points, and print function
@@ -43,6 +50,10 @@ class Blue : public Card {                               //From Blue to Garden a
 };
 
 class Chili : public Card {
+public:
+    Chili() {
+        return;
+    }
     string getName() {
         return "Chili";
     }
@@ -69,6 +80,10 @@ class Chili : public Card {
 };
 
 class Stink : public Card {
+public:
+    Stink() {
+        return;
+    }
     string getName() {
         return "Stink";
     }
@@ -95,6 +110,10 @@ class Stink : public Card {
 };
 
 class Green : public Card {
+public:
+    Green() {
+        return;
+    }
     string getName() {
         return "Green";
     }
@@ -121,6 +140,10 @@ class Green : public Card {
 };
 
 class Soy : public Card {
+public:
+    Soy() {
+        return;
+    }
     string getName() {
         return "Soy";
     }
@@ -147,6 +170,10 @@ class Soy : public Card {
 };
 
 class Black : public Card {
+public:
+    Black() {
+        return;
+    }
     string getName() {
         return "Black";
     }
@@ -173,6 +200,10 @@ class Black : public Card {
 };
 
 class Red : public Card {
+public:
+    Red() {
+        return;
+    }
     string getName() {
         return "Red";
     }
@@ -199,6 +230,10 @@ class Red : public Card {
 };
 
 class Garden : public Card {
+public:
+    Garden() {
+        return;
+    }
     string getName() {
         return "Garden";
     }
@@ -251,20 +286,27 @@ class Chain {
     }*/
 };
 
+class Deck{
+public:
+    vector<Card> myDeck;
 
-
-class Deck : public std::vector<Card>{
+public : 
+    
+    Deck() {
+        return;
+    }
 
     Deck(istream& i, const CardFactory* c) {
-        
+
     }
     Card* draw() {
+        Card* temp;
+    }
 
+    void addCard(Card addMe) {
+        myDeck.emplace_back(addMe);
     }
 };
-
-
-
 
 class DiscardPile {
 
@@ -297,6 +339,55 @@ class Table {
 
 class CardFactory {
 
+    Deck tempDeck;
+
+    CardFactory() {
+        for (int i = 0; i < 20; i++) {
+            Blue tempCard;
+            tempDeck.addCard(tempCard);
+        }
+        for (int i = 0; i < 18; i++) {
+            Chili tempCard;
+            tempDeck.addCard(tempCard);
+        }
+        for (int i = 0; i < 16; i++) {
+            Stink tempCard;
+            tempDeck.addCard(tempCard);
+        }
+        for (int i = 0; i < 14; i++) {
+            Green tempCard;
+            tempDeck.addCard(tempCard);
+        }
+        for (int i = 0; i < 12; i++) {
+            Soy tempCard;
+            tempDeck.addCard(tempCard);
+        }
+        for (int i = 0; i < 10; i++) {
+            Black tempCard;
+            tempDeck.addCard(tempCard);
+        }
+        for (int i = 0; i < 8; i++) {
+            Red tempCard;
+            tempDeck.addCard(tempCard);
+        }
+        for (int i = 0; i < 6; i++) {
+            Garden tempCard;
+            tempDeck.addCard(tempCard);
+        }
+    }
+
+    static CardFactory* getFactory() {
+        CardFactory temp;
+        CardFactory* tempPoint;
+        tempPoint = &temp;
+
+        return tempPoint;
+    }
+
+    Deck getDeck() {
+        return tempDeck;
+    }
+
 };
 
 
@@ -305,13 +396,3 @@ int main()
     std::cout << "Hello World!\n";
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
