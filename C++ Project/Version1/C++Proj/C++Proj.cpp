@@ -16,7 +16,6 @@ class Card {                                            //Card acts as a base cl
     }
 };
 
-
 class Blue : public Card {                               //From Blue to Garden are the different cards that exist in the game and are children of Card  
     string getName() {
         return "Blue";
@@ -235,6 +234,7 @@ protected:
 class Chain {
     istream myIstream;
     CardFactory myCardFactory;
+    vector<Card> cardList;
     /*Chain(istream& a, const CardFactory* b) {
         myCardFactory = *b;
     }
@@ -243,9 +243,10 @@ class Chain {
     }
     int sell(){
         int sum = 0;
-        for each (object card in myCardFactory)
+        int i = 0;
+        while (cardList[i] != NULL)
         {
-            sum += card::getCardsPerCoin();
+            sum += cardList[i]::getCardsPerCoin();
         }
     }*/
 };
@@ -262,8 +263,19 @@ class Deck : public std::vector<Card>{
     }
 };
 
+
+
+
 class DiscardPile {
 
+    DiscardPile(istream& a, const CardFactory* b) {
+        
+    }
+    DiscardPile& operator+=(Card*);
+    Card* pickup();
+    Card* top();
+    void print(std::ostream&);
+    /*insert operator friend to insert only the top caed of the discard to an std::ostream*/
 };
 
 class TradeArea {
