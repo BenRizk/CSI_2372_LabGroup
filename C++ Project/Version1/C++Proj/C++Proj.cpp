@@ -267,15 +267,30 @@ class Deck : public std::vector<Card>{
 
 
 class DiscardPile {
-
+    std::vector<Card*> pile;
+    int numberOfCards = 0;
     DiscardPile(istream& a, const CardFactory* b) {
-        
+        //TODO add this, I dont know what should go here
     }
-    DiscardPile& operator+=(Card*);
-    Card* pickup();
-    Card* top();
-    void print(std::ostream&);
-    /*insert operator friend to insert only the top caed of the discard to an std::ostream*/
+    DiscardPile& operator+=(Card* newCard) {
+        pile.push_back(newCard);
+        numberOfCards += 1;
+    }
+    Card* pickup() {
+        if (numberOfCards >= 0) {
+            Card* temp = pile[numberOfCards];
+            pile.erase(pile.begin() + numberOfCards - 1);
+            return temp;
+        }
+        return NULL;
+    }
+    Card* top() {
+        return pile[numberOfCards];
+    }
+    void print(std::ostream& a) {
+        a << pile << endl;
+    }
+    /*TODO:         insert operator friend to insert only the top caed of the discard to an std::ostream*/
 };
 
 class TradeArea {
