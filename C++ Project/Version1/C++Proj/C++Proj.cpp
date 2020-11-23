@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <list>
 using namespace std;
 
 //Cards section
@@ -286,6 +287,7 @@ class Chain {
     }*/
 };
 
+//Deck section
 class Deck{
 public:
     vector<Card> myDeck;
@@ -308,6 +310,7 @@ public :
     }
 };
 
+//Discard Pile Section
 class DiscardPile {
     std::vector<Card*> pile;
     int numberOfCards = 0;
@@ -330,7 +333,10 @@ class DiscardPile {
         return pile[numberOfCards];
     }
     void print(std::ostream& a) {
-        a << pile << endl;
+        int i;
+        for (i = 0; i < numberOfCards; i++) {
+            a << pile[i] << endl;
+        }
     }
     /*TODO:         insert operator friend to insert only the top caed of the discard to an std::ostream*/
 };
@@ -339,8 +345,41 @@ class TradeArea {
 
 };
 
+//Hand section
 class Hand {
-
+    std::list<Card*> heldCards;
+    Hand(istream& stream, const CardFactory* fact) {
+        return;//TODO: add this section
+    }
+    Hand& operator += (Card* car) {
+        heldCards.push_back(car);
+        return *this;
+    }
+    Card* play() {
+        Card* returnThis = heldCards.front();
+        heldCards.pop_front();
+        return returnThis;
+    }
+    Card* top() {
+        Card* returnThis = heldCards.front();
+        return returnThis;
+    }
+    Card* operator[] (int num) {
+        std::list<Card*>::iterator iter;
+        int i;
+        if (num < 0) {
+            return NULL;
+        }
+        while (i < num)
+        {
+            iter++;
+            i++;
+        }
+        Card* returnThis = *iter;
+        heldCards.erase(iter);
+        return returnThis;
+    }
+    /*  and the interstion operator (friend) to print Hnad on an std::ostream. the hand should print all the cards in order*/
 };
 
 class Player {
