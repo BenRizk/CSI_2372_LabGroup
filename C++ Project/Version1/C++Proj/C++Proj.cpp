@@ -269,13 +269,16 @@ protected:
 
 class Chain {
     istream myIstream;
+    int numberOfCards;
     CardFactory myCardFactory;
     vector<Card> cardList;
     /*Chain(istream& a, const CardFactory* b) {
         myCardFactory = *b;
     }
-    Chain<T>& operator += (Card*) {
-        return this;
+    Chain<T>& operator += (Card* newCard) {
+        cardList.push_back(newCard);
+        numberOfCards += 1;
+        return *this
     }
     int sell(){
         int sum = 0;
@@ -382,8 +385,49 @@ class Hand {
     /*  and the interstion operator (friend) to print Hnad on an std::ostream. the hand should print all the cards in order*/
 };
 
+//Player Section
 class Player {
-
+    string name;
+    std::vector<Card*> hand;
+    int coins;
+    Player(std::string& s) {
+        name = s;
+        coins = 0;
+    };
+    Player(std::istream& istream, const CardFactory* myCardFact) {
+        //TODO add this
+    }
+    std::string getName() {
+        return name;
+    }
+    int getNumCoins() {
+        return coins;
+    }
+    Player& operator += (int newCoins) {
+        coins += newCoins;
+        return *this;
+    }
+    int getMaxNumChains() {
+        //TODO this is not done at all
+        return 2;//this is not final and is a place holder //should return 2 or 3
+    }
+    int getNumChains() {
+        //TODO add this later
+        return 1;//this is not final and is a placholder //should return a non-zero number of chains
+    }
+    Chain& operator [] (int i);//TODO add this        //return the chainat posistion i
+    void buyThirdChain(); //TODO add this   //adds a empty 3rd chain to the player for 3 coins. if they do not have enough coins throw NotEnoughCoins Excepetion
+    void printHand(std::ostream& stream, bool topOrAll) {
+        if (topOrAll) {
+            for (Card* n : hand) {
+                std::cout << &n << '\n';
+            }
+        }
+        else {
+            std::cout << hand.front() << "'\n";
+        }
+    }
+    /*add the insertion operator (friend) to print Player to an std::ostream. prints the player's name, number of coins and each of the chains*/
 };
 
 
