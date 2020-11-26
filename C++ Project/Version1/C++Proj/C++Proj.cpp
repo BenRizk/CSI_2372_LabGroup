@@ -311,6 +311,12 @@ public :
     void addCard(Card addMe) {
         myDeck.emplace_back(addMe);
     }
+    bool isEmpty() {
+        if (myDeck.empty()) {
+            return true;
+        }
+        return false;
+    }
 };
 
 //Discard Pile Section
@@ -430,9 +436,39 @@ class Player {
     /*add the insertion operator (friend) to print Player to an std::ostream. prints the player's name, number of coins and each of the chains*/
 };
 
-
+//table Section
 class Table {
-
+    Player p1;
+    Player p2;
+    Deck tableDeck;
+    DiscardPile tableDiscard;
+    TradeArea tableTradeArea;
+    int p1Op2Turn = 1;
+    Table(istream& is, const CardFactory* cardFact) {
+        //TODO: NOT DONE!!!!!!!!!!!!!
+        //p1 = new Player();
+        //p2 = new Player();
+        return;
+    }
+    /* TODO: this will not work untill the initalization function is made
+    bool win(std::string& playerName) {
+        std::string& name1 = p1.getName();
+        std::string& name2 = p2.getName();
+        if (!playerName.compare(name1) && tableDeck.isEmpty()) {
+            return true;
+        }else if (!playerName.compare(name2) && tableDeck.isEmpty()) {
+            return true;
+        }
+    }
+    void printHand(bool topOrAll) {
+        if (p1Op2Turn == 1) {
+            p1.printHand(cout, topOrAll);
+        }
+        else {
+            p2.printHand(cout, topOrAll);
+        }
+    }*/
+    /*insertion operator (friend) to print Table to in std::ostream  the 2 players, discard pile, and trading area*/
 };
 
 class CardFactory {
