@@ -3,12 +3,14 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <random>
 #include <list>
 using namespace std;
 
 //Cards section
 class Card {                                            //Card acts as a base class for its children to take from
+public:
     virtual int getCardsPerCoin(int coins) {
     }
     virtual string getName() {
@@ -308,12 +310,11 @@ public :
     }
 
     Deck(istream& i, const CardFactory* c) {
-
+        
     }
     Card* draw() {
         Card* temp;
     }
-
     void addCard(Card addMe) {
         myDeck.emplace_back(addMe);
     }
@@ -322,6 +323,10 @@ public :
             return true;
         }
         return false;
+    }
+    void shuffleDeck() {
+        auto rng = default_random_engine{};
+        shuffle(begin(myDeck), end(myDeck), rng);
     }
 };
 
@@ -359,6 +364,42 @@ class DiscardPile {
 };
 
 class TradeArea {
+
+    list<Card> myList;
+
+    TradeArea(istream& i, const CardFactory* c) {
+
+    }
+    TradeArea& operator+=(Card* c) {
+        myList.insert(myList.begin(),*c);
+        return;
+    }
+    bool legal(Card* c) {
+        std::list<Card>::iterator myIter;
+        for (myIter = myList.begin(); myIter != myList.end(); ++myIter) {
+            string comp1 = (*myIter).getName();
+            string comp2 = (*c).getName();
+            if (comp1._Equal(comp2)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    Card* trade(string temp) {
+        std::list<Card>::iterator myIter;
+        int counter = 0;
+        for (myIter = myList.begin(); myIter != myList.end(); ++myIter) {
+            string comp1 = (*myIter).getName();
+            if (comp1._Equal(temp)) {
+                //return myList.remove((*myIter));                         TODO: find way to turn list element into card pointer
+            }
+            counter++;
+        }
+        return NULL;
+    }
+    int numCards() {
+        return myList.size();
+    }
 
 };
 
@@ -530,11 +571,11 @@ class CardFactory {
         CardFactory temp;
         CardFactory* tempPoint;
         tempPoint = &temp;
-
         return tempPoint;
     }
 
     Deck getDeck() {
+        tempDeck.shuffleDeck();
         return tempDeck;
     }
 
