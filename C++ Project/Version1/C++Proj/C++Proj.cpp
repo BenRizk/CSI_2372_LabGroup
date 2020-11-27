@@ -272,9 +272,11 @@ class Chain {
     int numberOfCards;
     CardFactory myCardFactory;
     vector<Card> cardList;
-    /*Chain(istream& a, const CardFactory* b) {
-        myCardFactory = *b;
+    Chain(istream& is, const CardFactory* fact) {
+        return;//TODO add this
     }
+    
+    /*
     Chain<T>& operator += (Card* newCard) {
         cardList.push_back(newCard);
         numberOfCards += 1;
@@ -288,6 +290,10 @@ class Chain {
             sum += cardList[i]::getCardsPerCoin();
         }
     }*/
+public:
+    vector<Card> getCardList() {
+        return cardList;
+    }
 };
 
 //Deck section
@@ -348,6 +354,8 @@ class DiscardPile {
         }
     }
     /*TODO:         insert operator friend to insert only the top caed of the discard to an std::ostream*/
+    friend ostream& operator << (ostream&, DiscardPile);
+
 };
 
 class TradeArea {
@@ -357,11 +365,14 @@ class TradeArea {
 //Hand section
 class Hand {
     std::list<Card*> heldCards;
+    int numberOfCards;
     Hand(istream& stream, const CardFactory* fact) {
+        numberOfCards = 0;
         return;//TODO: add this section
     }
     Hand& operator += (Card* car) {
         heldCards.push_back(car);
+        numberOfCards++;
         return *this;
     }
     Card* play() {
@@ -388,7 +399,11 @@ class Hand {
         heldCards.erase(iter);
         return returnThis;
     }
+    int getNumberOfCards() {
+        return numberOfCards;
+    }
     /*  and the interstion operator (friend) to print Hnad on an std::ostream. the hand should print all the cards in order*/
+    friend ostream& operator << (ostream&, Hand);
 };
 
 //Player Section
@@ -421,7 +436,7 @@ class Player {
         //TODO add this later
         return 1;//this is not final and is a placholder //should return a non-zero number of chains
     }
-    Chain& operator [] (int i);//TODO add this        //return the chainat posistion i
+    Chain& operator [] (int i);//TODO add this        //return the chain at posistion i
     void buyThirdChain(); //TODO add this   //adds a empty 3rd chain to the player for 3 coins. if they do not have enough coins throw NotEnoughCoins Excepetion
     void printHand(std::ostream& stream, bool topOrAll) {
         if (topOrAll) {
@@ -434,6 +449,7 @@ class Player {
         }
     }
     /*add the insertion operator (friend) to print Player to an std::ostream. prints the player's name, number of coins and each of the chains*/
+    friend ostream& operator << (ostream&, Player);
 };
 
 //table Section
@@ -523,6 +539,33 @@ class CardFactory {
     }
 
 };
+
+//Friend class section
+ostream& operator << (ostream& os, DiscardPile pile){
+    os << pile.top();
+    return os;
+}
+ostream& operator << (ostream& os, Hand han) {
+    for (int i = 0; i < han.getNumberOfCards(); i++){
+        os << han[i];
+    }
+    return os;
+}
+ostream& operator << (ostream& os, Chain ch) {
+    vector<Card> a = ch.getCardList();
+    for (int i = 0; i < a.size(); i++){
+        //a.at(i).print(os);//TODO BEN: this is not quite done. should print the card for each card in the chain.
+    }
+    return os;
+}
+ostream& operator << (ostream& os, Player play) {//prints the player's name, number of coins and each of the chains
+    os << play.getName() << "  " << play.getNumCoins()<<" coins/n";
+    for (int i = 0; i < play.getNumChains(); i++) {
+        //os << play[i]; //TODO: uncomment this when the chain << operator function is fixed 
+    }
+    return os;
+}
+
 
 
 int main()
