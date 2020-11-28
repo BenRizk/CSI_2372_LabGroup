@@ -526,6 +526,7 @@ class Table {
         }
     }*/
     /*insertion operator (friend) to print Table to in std::ostream  the 2 players, discard pile, and trading area*/
+    friend ostream& operator << (ostream&, Table);
 };
 
 class CardFactory {
@@ -595,18 +596,24 @@ ostream& operator << (ostream& os, Hand han) {
 ostream& operator << (ostream& os, Chain ch) {
     vector<Card> a = ch.getCardList();
     for (int i = 0; i < a.size(); i++){
-        //a.at(i).print(os);//TODO BEN: this is not quite done. should print the card for each card in the chain.
+        a.at(i).print(os);
     }
     return os;
 }
 ostream& operator << (ostream& os, Player play) {//prints the player's name, number of coins and each of the chains
     os << play.getName() << "  " << play.getNumCoins()<<" coins/n";
     for (int i = 0; i < play.getNumChains(); i++) {
-        //os << play[i]; //TODO: uncomment this when the chain << operator function is fixed 
+        os << &play[i]; 
     }
     return os;
 }
-
+ostream& operator << (ostream& os, Table tab) {
+    os << tab.p1 << tab.p2 << tab.tableDiscard /*<< tab.tableTradeArea                  TODO: THis needs to be uncommented when trade area has an ostream*/;
+    for (int i = 0; i < a.size(); i++) {
+        a.at(i).print(os);
+    }
+    return os;
+}
 
 
 int main()
