@@ -310,10 +310,16 @@ public :
     }
 
     Deck(istream& i, const CardFactory* c) {
-        
+        Deck tempDeck;
+        //tempDeck = (*c).getDeck();                 TODO: try to get deck from card factory
+        myDeck.emplace_back(NULL);
     }
     Card* draw() {
-        Card* temp;
+        Card temp;
+        temp = myDeck.back();
+        myDeck.pop_back();
+        Card* pointTemp = &temp;
+        return pointTemp;
     }
     void addCard(Card addMe) {
         myDeck.emplace_back(addMe);
@@ -387,13 +393,11 @@ class TradeArea {
     }
     Card* trade(string temp) {
         std::list<Card>::iterator myIter;
-        int counter = 0;
         for (myIter = myList.begin(); myIter != myList.end(); ++myIter) {
             string comp1 = (*myIter).getName();
             if (comp1._Equal(temp)) {
                 //return myList.remove((*myIter));                         TODO: find way to turn list element into card pointer
             }
-            counter++;
         }
         return NULL;
     }
@@ -533,6 +537,7 @@ class CardFactory {
 
     Deck tempDeck;
 
+public:
     CardFactory() {
         for (int i = 0; i < 20; i++) {
             Blue tempCard;
@@ -618,6 +623,18 @@ ostream& operator << (ostream& os, Table tab) {
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Deck gameDeck;
+    //Table gameTable;
+    string playerNames[2];
+    cout << "Enter 1st player name: " << "\n";
+    cin >> playerNames[0];
+    cout << "Enter 2n player name: " << "\n";
+    cin >> playerNames[1];
+
+    //each player draw 5
+
+    while (!gameDeck.isEmpty()) {
+        
+    }
 }
 
