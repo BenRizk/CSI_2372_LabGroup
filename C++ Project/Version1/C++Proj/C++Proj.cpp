@@ -340,9 +340,65 @@ public :
 class DiscardPile {
     std::vector<Card*> pile;
     int numberOfCards = 0;
-    DiscardPile(istream& a, const CardFactory* b) {
-        //TODO add this, I dont know what should go here
+    DiscardPile(istream& a, const CardFactory* b) {//This
+        
+        int blue = 0;
+        int chilli = 0;
+        int stink = 0;
+        int green = 0;
+        int soy = 0;
+        int black = 0;
+        int red = 0;
+        int garden = 0;
+
+        std::string word;
+        while (a >> word)
+        {
+            if (word.compare("B")) { blue += 1; }
+            else if (word.compare("C")) { chilli += 1; }
+            else if (word.compare("S")) { stink += 1; }
+            else if (word.compare("G")) { green += 1; }
+            else if (word.compare("S")) { soy += 1; }
+            else if (word.compare("b")) { black += 1; }
+            else if (word.compare("R")) { red += 1; }
+            else if (word.compare("g")) { garden += 1; }
+        }
+        std::vector<Card*> newPile;
+        for (int i = 0; i < blue; i++) {
+            Blue tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < chilli; i++) {
+            Chili tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < stink; i++) {
+            Stink tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < green; i++) {
+            Green tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < soy; i++) {
+            Soy tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < red; i++) {
+            Black tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < red; i++) {
+            Red tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < garden; i++) {
+            Garden tempCard;
+            newPile.push_back(&tempCard);
+        }
+        pile = newPile;
     }
+
     DiscardPile& operator+=(Card* newCard) {
         pile.push_back(newCard);
         numberOfCards += 1;
@@ -579,6 +635,9 @@ public:
         tempPoint = &temp;
         return tempPoint;
     }
+    void replaceDeck(Deck newDeck) {
+        tempDeck = newDeck;
+    }
 
     Deck getDeck() {
         tempDeck.shuffleDeck();
@@ -619,6 +678,9 @@ ostream& operator << (ostream& os, Table tab) {
     }
     return os;
 }
+
+//Reconstruct function
+
 
 
 int main()
