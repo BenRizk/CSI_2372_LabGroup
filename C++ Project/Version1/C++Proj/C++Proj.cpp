@@ -340,6 +340,46 @@ public :
 class DiscardPile {
     std::vector<Card*> pile;
     int numberOfCards = 0;
+public:
+    DiscardPile() {
+        return;
+    }
+    DiscardPile(int blue = 0, int chilli = 0, int stink = 0, int green = 0, int soy = 0, int black = 0, int red = 0, int garden = 0) {
+        std::vector<Card*> newPile;
+        for (int i = 0; i < blue; i++) {
+            Blue tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < chilli; i++) {
+            Chili tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < stink; i++) {
+            Stink tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < green; i++) {
+            Green tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < soy; i++) {
+            Soy tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < red; i++) {
+            Black tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < red; i++) {
+            Red tempCard;
+            newPile.push_back(&tempCard);
+        }
+        for (int i = 0; i < garden; i++) {
+            Garden tempCard;
+            newPile.push_back(&tempCard);
+        }
+        pile = newPile;
+    }
     DiscardPile(istream& a, const CardFactory* b) {//This
         
         int blue = 0;
@@ -429,6 +469,10 @@ class TradeArea {
 
     list<Card> myList;
 
+public:
+    TradeArea() {
+        return;
+    }
     TradeArea(istream& i, const CardFactory* c) {
 
     }
@@ -467,6 +511,7 @@ class TradeArea {
 class Hand {
     std::list<Card*> heldCards;
     int numberOfCards;
+public:
     Hand(istream& stream, const CardFactory* fact) {
         numberOfCards = 0;
         return;//TODO: add this section
@@ -512,12 +557,22 @@ class Player {
     string name;
     std::vector<Card*> hand;
     int coins;
+public:
     Player(std::string& s) {
         name = s;
         coins = 0;
     };
     Player(std::istream& istream, const CardFactory* myCardFact) {
         //TODO add this
+        std::string word, player1Name, player2Name;
+        istream >> player1Name;
+        istream >> coins;
+        /*while (istream >> word)
+        {
+            if (word.compare("B")) {//TODO:   hand += Blue()        repeat this for all possible cards
+            }
+            
+        }*/
     }
     std::string getName() {
         return name;
@@ -561,22 +616,56 @@ class Table {
     DiscardPile tableDiscard;
     TradeArea tableTradeArea;
     int p1Op2Turn = 1;
-    Table(istream& is, const CardFactory* cardFact) {
-        //TODO: NOT DONE!!!!!!!!!!!!!
-        //p1 = new Player();
-        //p2 = new Player();
+    Table() {
+        std::string a = "player 1";
+        p1 = Player(a);
+        std::string b = "player 2";
+        p2 = Player(b);
+        tableDeck = Deck();
+        tableDiscard = DiscardPile(0,0,0,0,0,0,0,0);
+        tableTradeArea = TradeArea();
         return;
     }
-    /* TODO: this will not work untill the initalization function is made
+    Table(istream& is, const CardFactory* cardFact) {
+        
+
+        std::string word,player1Name,player2Name;
+        is >> player1Name;
+        is >> player2Name;
+        int blue = 0;
+        int chilli = 0;
+        int stink = 0;
+        int green = 0;
+        int soy = 0;
+        int black = 0;
+        int red = 0;
+        int garden = 0;
+
+        while (is >> word)
+        {
+            if (word.compare("B")) { blue += 1; }
+            else if (word.compare("C")) { chilli += 1; }
+            else if (word.compare("S")) { stink += 1; }
+            else if (word.compare("G")) { green += 1; }
+            else if (word.compare("S")) { soy += 1; }
+            else if (word.compare("b")) { black += 1; }
+            else if (word.compare("R")) { red += 1; }
+            else if (word.compare("g")) { garden += 1; }
+        }
+        DiscardPile(blue, chilli, stink, green, soy, black, red, garden);
+        return;
+    }
+    
     bool win(std::string& playerName) {
-        std::string& name1 = p1.getName();
-        std::string& name2 = p2.getName();
+        std::string name1 = p1.getName();
+        std::string name2 = p2.getName();
         if (!playerName.compare(name1) && tableDeck.isEmpty()) {
             return true;
         }else if (!playerName.compare(name2) && tableDeck.isEmpty()) {
             return true;
         }
     }
+
     void printHand(bool topOrAll) {
         if (p1Op2Turn == 1) {
             p1.printHand(cout, topOrAll);
@@ -584,7 +673,7 @@ class Table {
         else {
             p2.printHand(cout, topOrAll);
         }
-    }*/
+    }
     /*insertion operator (friend) to print Table to in std::ostream  the 2 players, discard pile, and trading area*/
     friend ostream& operator << (ostream&, Table);
 };
@@ -592,8 +681,8 @@ class Table {
 class CardFactory {
 
     Deck tempDeck;
-
 public:
+
     CardFactory() {
         for (int i = 0; i < 20; i++) {
             Blue tempCard;
@@ -635,6 +724,7 @@ public:
         tempPoint = &temp;
         return tempPoint;
     }
+
     void replaceDeck(Deck newDeck) {
         tempDeck = newDeck;
     }
@@ -643,7 +733,6 @@ public:
         tempDeck.shuffleDeck();
         return tempDeck;
     }
-
 };
 
 //Friend class section
@@ -673,9 +762,9 @@ ostream& operator << (ostream& os, Player play) {//prints the player's name, num
 }
 ostream& operator << (ostream& os, Table tab) {
     os << tab.p1 << tab.p2 << tab.tableDiscard /*<< tab.tableTradeArea                  TODO: THis needs to be uncommented when trade area has an ostream*/;
-    for (int i = 0; i < a.size(); i++) {
+    /*for (int i = 0; i < tab.size(); i++) {
         a.at(i).print(os);
-    }
+    }*/
     return os;
 }
 
