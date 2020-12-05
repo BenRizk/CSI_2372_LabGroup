@@ -745,6 +745,12 @@ class Player {
     std::vector<Card*> hand;
     int coins;
 public:
+
+    Player() {
+        name = "default";
+        coins = 0;
+    }
+
     Player(std::string& s) {
         name = s;
         coins = 0;
@@ -800,6 +806,7 @@ public:
 
 //table Section
 class Table {
+public:
     Player p1;
     Player p2;
     Deck tableDeck;
@@ -976,8 +983,11 @@ ostream& operator << (ostream& os, Table tab) {
 int main()
 {
     Deck gameDeck;
-    //Table gameTable;
+    Table gameTable;
+    vector<Player> p1(2);
     string playerNames[2];
+    TradeArea trader;
+    string decision;
     cout << "Enter 1st player name: " << "\n";
     cin >> playerNames[0];
     cout << "Enter 2n player name: " << "\n";
@@ -986,7 +996,92 @@ int main()
     //each player draw 5
 
     while (!gameDeck.isEmpty()) {
+        for (int i = 0; i < 2; i++) {           //for each player
+             //display table
+            if (i == 0) {
+                //player 1 draws
+            }
+            else {
+                //player 2 draws
+            }
+           
+            if (trader.numCards() == 0) {
+                //trader places card into Dpile or chain
+            }
+           
+            if (i == 0) {
+                
+                //player 1 plays card
+            }
+            else {
+                //player 2 plays card
+            }
+            
+            // if played card ends chain player gets points
+
+            if (i == 0) {
+
+                //player 1 decides to play topmost card
+               
+            }
+            else {
+                //player 2 decides to play topmost card
+            }
+            // if played card ends chain player gets points
+
+            if (i == 0) {
+
+                //player 1 decides to show hand
+                cout << "do you want to show your hand to discard a card?(y/n)";
+                cin >> decision;
+                if (decision == "y") {
+                    //choose card to discard
+                }
+            }
+            else {
+                //player 2 decides to show hand
+                cout << "do you want to show your hand to discard a card?(y/n)";
+                cin >> decision;
+                if (decision == "y") {
+                    //choose card to discard
+                }
+            }
+
+            //place three card into trade area from deck
+                
+            while (1) {         //while top card of discard pile matches top card of trade area
+                //take top cord of Dpile and place in trade area
+            }
+            std::list<Card>::iterator myIter;
+
+            for (myIter = gameTable.tableTradeArea.myList.begin(); myIter != gameTable.tableTradeArea.myList.end(); ++myIter) { //iterate throught all cards in trade area
+                if (i == 0) {
+
+                    //player 1 decides to chain the card
+
+                }
+                else {
+                    //player 2 decides to to chain the card
+                }
+            }
+            
+            if (i == 0) {
+
+                //player 1 draws 2 cards from deck
+
+            }
+            else {
+                //player 2 draws 2 cards from deck
+            }
+
+
+        }
+       
+
         
+
+
+
     }
 }
 
