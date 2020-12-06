@@ -812,13 +812,23 @@ public:
 
 //Player Section T
 class Player {
+public:
     string name;
     std::vector<Card*> hand;
     int coins;
+<<<<<<< HEAD
     int numberOfChains;
     std::vector<Chain> playerChains;
 
 public:
+=======
+
+
+    Player() {
+        name = "default";
+        coins = 0;
+    }
+>>>>>>> 18961d8e09748b45f6acfff19b1611252c418c17
 
     Player(std::string& s) {
         name = s;
@@ -881,6 +891,7 @@ public:
 
 //table Section T
 class Table {
+public:
     Player p1;
     Player p2;
     Deck tableDeck;
@@ -1047,22 +1058,153 @@ ostream& operator << (ostream& os, Table tab) {
     return os;
 }
 
+<<<<<<< HEAD
 
+=======
+//Reconstruct function
+>>>>>>> 18961d8e09748b45f6acfff19b1611252c418c17
 
 int main()
 {
     Deck gameDeck;
-    //Table gameTable;
+    Table gameTable;
+    vector<Player> p1(2);
     string playerNames[2];
+    TradeArea trader;
+    string decision;
+    int temp;
+    Card *tempCard;
     cout << "Enter 1st player name: " << "\n";
     cin >> playerNames[0];
     cout << "Enter 2n player name: " << "\n";
     cin >> playerNames[1];
 
     //each player draw 5
+    gameTable.p1.hand.push_back(gameTable.tableDeck.draw());
+    gameTable.p1.hand.push_back(gameTable.tableDeck.draw());
+    gameTable.p1.hand.push_back(gameTable.tableDeck.draw());
+    gameTable.p1.hand.push_back(gameTable.tableDeck.draw());
+    gameTable.p1.hand.push_back(gameTable.tableDeck.draw());
+   
+    gameTable.p2.hand.push_back(gameTable.tableDeck.draw());
+    gameTable.p2.hand.push_back(gameTable.tableDeck.draw());
+    gameTable.p2.hand.push_back(gameTable.tableDeck.draw());
+    gameTable.p2.hand.push_back(gameTable.tableDeck.draw());
+    gameTable.p2.hand.push_back(gameTable.tableDeck.draw());
+    
+    while (!gameTable.tableDeck.isEmpty()) {
+        for (int i = 0; i < 2; i++) {           //for each player
+             //display table
+            if (i == 0) {
+                //player 1 draws
+                gameTable.p1.hand.push_back(gameTable.tableDeck.draw());
+            }
+            else {
+                //player 2 draws
+                gameTable.p2.hand.push_back(gameTable.tableDeck.draw());
+            }
+           
+            if (gameTable.tableTradeArea.numCards() == 0) {
+                //trade area places card into Dpile or chain
 
-    while (!gameDeck.isEmpty()) {
-        
+            }
+           
+            if (i == 0) {
+                //player 1 plays card
+               // gameTable.p1.hand.at(gameTable.p1.hand.size())
+            }
+            else {
+                //player 2 plays card
+                // gameTable.p2.hand.at(gameTable.p1.hand.size())
+            }
+            
+            // if played card ends chain player gets points
+
+            if (i == 0) {
+                //player 1 decides to play topmost card
+                cout << "Would you like to play another card?(y/n)";
+                cin >> decision;
+                if (decision._Equal("y")) {
+                    // gameTable.p1.hand.at(gameTable.p1.hand.size())
+                }
+            }
+            else {
+                //player 2 decides to play topmost card
+                cout << "Would you like to play another card?(y/n)";
+                cin >> decision;
+                if (decision._Equal("y")) {
+                    // gameTable.p2.hand.at(gameTable.p1.hand.size())
+                }
+            }
+            // if played card ends chain player gets points
+            if (i == 0) {
+                //player 1 decides to show hand
+                cout << "do you want to show your hand to discard a card?(y/n)";
+                cin >> decision;
+                if (decision._Equal("y")) {
+                    //choose card to discard
+                     //choose card to discard
+                    cout << "Choose a card in your hand to discard. (1,2,3,4,etc.)";
+                    cin >> temp;
+                    tempCard = gameTable.p1.hand.at(temp);            //take card from player hand and place into discard pile
+                    gameTable.tableDiscard += tempCard;
+                }
+            }
+            else {
+                //player 2 decides to show hand
+                cout << "Do you want to show your hand to discard a card?(y/n)";
+                cin >> decision;
+                if (decision._Equal("y")) {
+                    //choose card to discard
+                    cout << "Choose a card in your hand to discard. (1,2,3,4,etc.)";
+                    cin >> temp;
+                    tempCard = gameTable.p2.hand.at(temp);            //take card from player hand and place into discard pile
+                    gameTable.tableDiscard += tempCard;
+                }
+            }
+
+            //place three card into trade area from deck
+                
+            while ((gameTable.tableDiscard.top())._Equal(gameTable.tableTradeArea.myList.begin())) {         //while top card of discard pile matches top card of trade area
+                //take top cord of Dpile and place in trade area
+                gameTable.tableTradeArea.myList.emplace_back(gameTable.tableDiscard.top());
+            }
+            std::list<Card>::iterator myIter;
+            for (myIter = gameTable.tableTradeArea.myList.begin(); myIter != gameTable.tableTradeArea.myList.end(); ++myIter) { //iterate throught all cards in trade area
+                if (i == 0) {
+
+                    //player 1 decides to chain the card
+                    cout << "Would you like to chain the card?(y/n)";
+                    cin >> decision;
+                    if (decision._Equal("y")) {
+                        //place player 1 card into chain
+                    }
+
+                }
+                else {
+                    //player 2 decides to to chain the card
+                    cout << "Would you like to chain the card?(y/n)";
+                    cin >> decision;
+                    if (decision._Equal("y")) {
+                        //place player 2 card into chain
+                    }
+                }
+            }
+            
+            if (i == 0) {
+                //player 1 draws
+                gameTable.p1.hand.push_back(gameTable.tableDeck.draw());
+                gameTable.p1.hand.push_back(gameTable.tableDeck.draw());
+            }
+            else {
+                //player 2 draws
+                gameTable.p2.hand.push_back(gameTable.tableDeck.draw());
+                gameTable.p2.hand.push_back(gameTable.tableDeck.draw());
+            }
+
+
+        }
+
     }
 }
 
