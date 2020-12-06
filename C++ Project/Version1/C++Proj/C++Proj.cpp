@@ -6,7 +6,18 @@
 #include <algorithm>
 #include <random>
 #include <list>
+#include <typeinfo>
 using namespace std;
+
+//Exception Section
+class notEnoughCoins : public exception {
+    char* ad_text;
+public:
+    notEnoughCoins(char* text) { ad_text = text; }
+    notEnoughCoins() {}
+    const char* what() const { return ad_text; }
+};
+
 
 //Cards section
 class Card {                                            //Card acts as a base class for its children to take from
@@ -262,39 +273,96 @@ public:
     }
 };
 
-//Chain section
+//Chain section T
 template <class T> class Chain_Base {
 protected:
     std::vector<T*> chain;
     Chain_Base(T type) { std::vector<type*> chain; }
 };
 
-class Chain {
+class Chain : public Chain_Base<Card>{
+    
+public:
     istream myIstream;
     int numberOfCards;
     CardFactory myCardFactory;
-    vector<Card> cardList;
-public:
+    vector<Card*> cardList;
+
+    Chain() {
+        numberOfCards = 0;
+        return;
+    }
 
     Chain(istream& is, const CardFactory* fact) {
+        
         return;//TODO add this
     }
     
-    /*
-    Chain<T>& operator += (Card* newCard) {
+    Card* operator [] (int num){
+        return cardList.at(num);
+    }
+    
+    Chain& operator += (Card* newCard) {
         cardList.push_back(newCard);
         numberOfCards += 1;
-        return *this
+        return *this;
     }
 
     int sell(){
         int sum = 0;
         int i = 0;
-        while (cardList[i] != NULL)
+        Card temp;
+
+        int blue = 0;
+        int chilli = 0;
+        int stink = 0;
+        int green = 0;
+        int soy = 0;
+        int black = 0;
+        int red = 0;
+        int garden = 0;
+
+        while (cardList.at(i) != NULL)
         {
-            sum += cardList[i]::getCardsPerCoin();
+            temp = *cardList.at(i);
+            if (typeid(temp).name() == "Blue") {
+                blue += 1;
+            }
+            else if (typeid(temp).name() == "Chilli") {
+                chilli += 1;
+            }
+            else if (typeid(temp).name() == "Stink") {
+                stink += 1;
+            }
+            else if (typeid(temp).name() == "Green") {
+                green += 1;
+            }
+            else if (typeid(temp).name() == "Soy") {
+                soy += 1;
+            }
+            else if (typeid(temp).name() == "Black") {
+                black += 1;
+            }
+            else if (typeid(temp).name() == "Red") {
+                red += 1;
+            }
+            else if (typeid(temp).name() == "Garden") {
+                garden += 1;
+            }
+            i++;
         }
-    }*/
+        i = 0;
+        
+         sum += temp.getCardsPerCoin(blue);
+         sum += temp.getCardsPerCoin(blue);
+         sum += temp.getCardsPerCoin(blue);
+         sum += temp.getCardsPerCoin(blue);
+         sum += temp.getCardsPerCoin(blue);
+         sum += temp.getCardsPerCoin(blue);
+         sum += temp.getCardsPerCoin(blue);
+         sum += temp.getCardsPerCoin(blue);
+        
+    }
 
     vector<Card> getCardList() {
         return cardList;
@@ -395,7 +463,7 @@ public :
     }
 };
 
-//Discard Pile Section
+//Discard Pile Section T
 class DiscardPile {
     std::vector<Card*> pile;
     int numberOfCards = 0;
@@ -531,6 +599,7 @@ public:
 
 };
 
+//Trade Area Section T
 class TradeArea {
 
 public:
@@ -619,7 +688,9 @@ public:
         for (myIter = myList.begin(); myIter != myList.end(); ++myIter) {
             string comp1 = (*myIter).getName();
             if (comp1._Equal(temp)) {
-                //return myList.remove((*myIter));                         TODO: find way to turn list element into card pointer
+                    Card* ret = &myList.front();
+                    myList.remove(*myIter);
+                return ret;
             }
         }
         return NULL;
@@ -631,7 +702,7 @@ public:
 
 };
 
-//Hand section
+//Hand section T
 class Hand {
     std::list<Card*> heldCards;
     int numberOfCards;
@@ -739,15 +810,22 @@ public:
     friend ostream& operator << (ostream&, Hand);
 };
 
-//Player Section
+//Player Section T
 class Player {
     string name;
     std::vector<Card*> hand;
     int coins;
+    int numberOfChains;
+    std::vector<Chain> playerChains;
+
 public:
+
     Player(std::string& s) {
         name = s;
         coins = 0;
+        playerChains.push_back(Chain());
+        playerChains.push_back(Chain());
+        numberOfChains = 2;
     };
 
     Player(std::istream& istream, const CardFactory* myCardFact) {
@@ -770,18 +848,21 @@ public:
     }
 
     int getMaxNumChains() {
-        //TODO this is not done at all
-        return 2;//this is not final and is a place holder //should return 2 or 3
+        return playerChains.size();
     }
 
     int getNumChains() {
-        //TODO add this later
-        return 1;//this is not final and is a placholder //should return a non-zero number of chains
+        return numberOfChains;
     }
 
-    Chain& operator [] (int i);//TODO add this        //return the chain at posistion i
+    Chain& operator [] (int i) {
+        return playerChains.at(i);
+    }
 
-    void buyThirdChain(); //TODO add this   //adds a empty 3rd chain to the player for 3 coins. if they do not have enough coins throw NotEnoughCoins Excepetion
+    void buyThirdChain() {
+         if (coins < 3) { throw notEnoughCoins("Not enough coins"); }//TODO
+         coins -= 3;
+    } 
 
     void printHand(std::ostream& stream, bool topOrAll) {
         if (topOrAll) {
@@ -798,7 +879,7 @@ public:
     friend ostream& operator << (ostream&, Player);
 };
 
-//table Section
+//table Section T
 class Table {
     Player p1;
     Player p2;
@@ -869,6 +950,7 @@ class Table {
     friend ostream& operator << (ostream&, Table);
 };
 
+//card factory
 class CardFactory {
 
     Deck tempDeck;
@@ -926,7 +1008,7 @@ public:
     }
 };
 
-//Friend class section
+//Friend class section T
 ostream& operator << (ostream& os, DiscardPile pile){
     os << pile.top();
     return os;
@@ -961,15 +1043,9 @@ ostream& operator << (ostream& os, TradeArea trade) {
 }
 ostream& operator << (ostream& os, Table tab) {
     os << tab.p1 << tab.p2 << tab.tableDiscard << tab.tableTradeArea;
-    /*TODO: THis needs to be uncommented when trade area has an ostream*/
     
-    /*for (int i = 0; i < tab.size(); i++) {
-        a.at(i).print(os);
-    }*/
     return os;
 }
-
-//Reconstruct function
 
 
 
