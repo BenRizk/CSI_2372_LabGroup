@@ -31,7 +31,6 @@ public:
     }
 };
 
-
 class Blue : public Card {  
                              //From Blue to Garden are the different cards that exist in the game and are children of Card  
 public :
@@ -1067,6 +1066,7 @@ int main()
     string decision;
     int temp;
     Card *tempCard;
+    Chain gameChains;
     cout << "Enter 1st player name: " << "\n";
     cin >> playerNames[0];
     cout << "Enter 2n player name: " << "\n";
@@ -1088,6 +1088,12 @@ int main()
     while (!gameTable.tableDeck.isEmpty()) {
         for (int i = 0; i < 2; i++) {           //for each player
              //display table
+            gameTable.tableDiscard.print(cout);
+            std::list<Card>::iterator iter;
+            for (iter = gameTable.tableTradeArea.myList.begin(); iter != gameTable.tableTradeArea.myList.end(); ++iter) {
+                cout << (iter - gameTable.tableTradeArea.myList.begin());
+            }
+            
             if (i == 0) {
                 //player 1 draws
                 gameTable.p1.hand.push_back(gameTable.tableDeck.draw());
@@ -1097,18 +1103,20 @@ int main()
                 gameTable.p2.hand.push_back(gameTable.tableDeck.draw());
             }
            
-            if (gameTable.tableTradeArea.numCards() == 0) {
+            if (gameTable.tableTradeArea.numCards() != 0) {
                 //trade area places card into Dpile or chain
-
+                if (gameTable.tableTradeArea.myList.begin()._Equals(gameChains.cardList.begin())) {
+                    //gameChains += gameTable.tableTradeArea.myList.begin();
+                }
             }
            
             if (i == 0) {
                 //player 1 plays card
-               // gameTable.p1.hand.at(gameTable.p1.hand.size())
+                gameChains += gameTable.p1.hand.at(gameTable.p1.hand.size());
             }
             else {
                 //player 2 plays card
-                // gameTable.p2.hand.at(gameTable.p1.hand.size())
+                gameChains += gameTable.p2.hand.at(gameTable.p1.hand.size());
             }
             
             // if played card ends chain player gets points
@@ -1118,7 +1126,7 @@ int main()
                 cout << "Would you like to play another card?(y/n)";
                 cin >> decision;
                 if (decision._Equal("y")) {
-                    // gameTable.p1.hand.at(gameTable.p1.hand.size())
+                    gameChains += gameTable.p1.hand.at(gameTable.p1.hand.size());
                 }
             }
             else {
@@ -1126,7 +1134,7 @@ int main()
                 cout << "Would you like to play another card?(y/n)";
                 cin >> decision;
                 if (decision._Equal("y")) {
-                    // gameTable.p2.hand.at(gameTable.p1.hand.size())
+                    gameChains += gameTable.p2.hand.at(gameTable.p1.hand.size());
                 }
             }
             // if played card ends chain player gets points
@@ -1136,7 +1144,6 @@ int main()
                 cin >> decision;
                 if (decision._Equal("y")) {
                     //choose card to discard
-                     //choose card to discard
                     cout << "Choose a card in your hand to discard. (1,2,3,4,etc.)";
                     cin >> temp;
                     tempCard = gameTable.p1.hand.at(temp);            //take card from player hand and place into discard pile
@@ -1157,7 +1164,10 @@ int main()
             }
 
             //place three card into trade area from deck
-                
+            gameTable.tableTradeArea.myList.emplace_back(gameTable.tableDeck.draw());
+            gameTable.tableTradeArea.myList.emplace_back(gameTable.tableDeck.draw());
+            gameTable.tableTradeArea.myList.emplace_back(gameTable.tableDeck.draw());
+
             while ((gameTable.tableDiscard.top())._Equal(gameTable.tableTradeArea.myList.begin())) {         //while top card of discard pile matches top card of trade area
                 //take top cord of Dpile and place in trade area
                 gameTable.tableTradeArea.myList.emplace_back(gameTable.tableDiscard.top());
@@ -1171,6 +1181,7 @@ int main()
                     cin >> decision;
                     if (decision._Equal("y")) {
                         //place player 1 card into chain
+                        gameChains += gameTable.p1.hand.at(gameTable.p1.hand.size());
                     }
 
                 }
@@ -1180,6 +1191,7 @@ int main()
                     cin >> decision;
                     if (decision._Equal("y")) {
                         //place player 2 card into chain
+                        gameChains += gameTable.p2.hand.at(gameTable.p1.hand.size());
                     }
                 }
             }
