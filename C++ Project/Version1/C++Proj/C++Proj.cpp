@@ -816,19 +816,16 @@ public:
     string name;
     std::vector<Card*> hand;
     int coins;
-<<<<<<< HEAD
     int numberOfChains;
     std::vector<Chain> playerChains;
 
 public:
-=======
 
 
     Player() {
         name = "default";
         coins = 0;
     }
->>>>>>> 18961d8e09748b45f6acfff19b1611252c418c17
 
     Player(std::string& s) {
         name = s;
@@ -1058,11 +1055,7 @@ ostream& operator << (ostream& os, Table tab) {
     return os;
 }
 
-<<<<<<< HEAD
 
-=======
-//Reconstruct function
->>>>>>> 18961d8e09748b45f6acfff19b1611252c418c17
 
 int main()
 {
